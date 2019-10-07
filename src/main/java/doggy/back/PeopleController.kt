@@ -1,5 +1,7 @@
 package doggy.back
 
+import doggy.back.doggies.DoggiesRepository
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus.*
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
@@ -9,23 +11,19 @@ import java.lang.Exception
 @RestController
 class PeopleController {
 
-    val doggyList = listOf(
-        People("BRM","Le Portugais", "Brandone", "Brond", "url", "WEBF", "rit très fort"),
-        People("RDO", "Dormoy", "Remi", "Rémido", "url", "MOB", "boit du Ricard"),
-        People("BEJ", "Jarlier", "Benoit", "Bénoit", "url", "NAD", "boit beaucoup"),
-        People("MBI", "Biardeau", "Marie", "Marizouz", "url", "OCAC", "boit des shots")
-    )
+
+    @Autowired private lateinit var repository: DoggiesRepository
 
     @GetMapping("/doggies")
     fun getDoggies(): List<People> {
-        return doggyList
+        return repository.getDoggies()
     }
 
     @GetMapping("/doggies/{trigramme}")
     fun getDoggy(
         @PathVariable("trigramme") trigramme: String
     ): People {
-        return doggyList.find { doggy ->
+        return repository.getDoggies().find { doggy ->
             doggy.trigramme == trigramme
         } ?: throw DoggyNotFoundException(trigramme)
     }
