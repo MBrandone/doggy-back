@@ -46,6 +46,14 @@ dependencies {
 
 }
 
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'doggy.back.DoggyBackKt'
+        )
+    }
+}
+
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
