@@ -1,0 +1,16 @@
+version : '3'
+services :
+  db:
+    image: postgres
+    container_name: doggy_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=doggy
+      - POSTGRES_PASSWORD=skool
+      - POSTGRES_DB=doggy
+      - DB_USER=
+      - PGPASSWORD=nopwd
+    volumes:
+      #all scripts in docker-entrypoint-initdb.d folder will be run at postgresql start
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
