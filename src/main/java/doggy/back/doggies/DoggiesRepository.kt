@@ -1,17 +1,18 @@
 package doggy.back.doggies
 
 import doggy.back.People
+import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.stereotype.Component
 
 @Component
-class DoggiesRepository {
+class DoggiesRepository(private val jdbcTemplate: JdbcTemplate) {
 
     private val doggyList = listOf(
         People(
             trigramme = "BRM",
-            nom = "Le Portugais",
+            nom = "Martins",
             prenom = "Brandone",
-            surnom = "Brondon",
+            surnom = "Brondon Le Portugais",
             photo = "https://firebasestorage.googleapis.com/v0/b/doggy-chat.appspot.com/o/doggy-photos%2Fbrm.jpg?alt=media&token=f25980ed-b9fd-451e-90e3-3eed64989de7",
             tribu = "WEBF",
             signeParticulier = "rit très fort"
@@ -171,6 +172,20 @@ class DoggiesRepository {
         )
     )
 
-    fun getDoggies() = doggyList
+    fun getDoggies(): List<People> {
+        //language=SQL
+        val sql = "SELECT * FROM doggies"
+        return jdbcTemplate.queryForList(sql).map {
+            People(
+                trigramme = it["trigramme"] as String,
+                nom = it["nom"] as String,
+                prenom = it["prenom"] as String,
+                surnom = it["surnom"] as String,
+                photo = it["photo"] as String,
+                tribu = it["tribu"] as String,
+                signeParticulier = it["signe_particulier"] as String
+            )
+        }
+    }
 
 }

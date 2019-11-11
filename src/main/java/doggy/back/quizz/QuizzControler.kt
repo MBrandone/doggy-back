@@ -15,6 +15,7 @@ class QuizzControler(private val partiesRepository: PartiesRepository) {
         partiesRepository.creerPartie(partie)
         return partie
     }
+
 }
 
 
