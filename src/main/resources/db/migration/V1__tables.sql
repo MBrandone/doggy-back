@@ -25,5 +25,5 @@ create table solution_citations(
     idDefis varchar(255),
     trigramme varchar(255),
     FOREIGN KEY (idDefis) REFERENCES defis(id),
-    FOREIGN KEY (trigramme) REFERENCES doggies(trigramme),
+    FOREIGN KEY (trigramme) REFERENCES doggies(trigramme)
 );

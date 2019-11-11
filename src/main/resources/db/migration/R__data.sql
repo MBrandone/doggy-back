@@ -16,3 +16,5 @@ INSERT INTO doggies values ('LJA', 'Jacquemin', 'Leo',  'Léo', 'https://firebas
 INSERT INTO doggies values ('MID', 'Durdevic', 'Mila',  'Mila', 'https://firebasestorage.googleapis.com/v0/b/doggy-chat.appspot.com/o/doggy-photos%2Fmila.jpg?alt=media&token=25b68c44-a34e-4536-a554-7f6c284e6324', 'CRAFT', 'Prend une grande caisse par an');
 INSERT INTO doggies values ('SLU', 'Lundy', 'Stéphane', 'Le Mondai', 'https://firebasestorage.googleapis.com/v0/b/doggy-chat.appspot.com/o/doggy-photos%2Fslu.jpg?alt=media&token=527e368e-75ec-413c-bdb5-1d8fc8482e9a', 'Autres', 'Maîtrise le feu');
 INSERT INTO doggies values ('RBO', 'Botter', 'Rafaëlle', 'Le fantôme', 'https://firebasestorage.googleapis.com/v0/b/doggy-chat.appspot.com/o/doggy-photos%2Frafaelle.jpg?alt=media&token=d361b266-d31d-49d2-b682-52e9c2ba091f', 'Autres', 'parle beaucoup trop');
+
+

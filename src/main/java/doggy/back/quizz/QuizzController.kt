@@ -1,6 +1,9 @@
 package doggy.back.quizz
 
 import doggy.back.ApiError
+import doggy.back.defi.BrandoneEstUnConException
+import doggy.back.defi.Defi
+import doggy.back.defi.ProcessResponseUseCase
 import doggy.back.parties.BenoitEstUnConException
 import doggy.back.parties.PartiesRepository
 import org.springframework.http.HttpStatus
@@ -10,7 +13,10 @@ import org.springframework.web.bind.annotation.*
 import java.util.*
 
 @RestController
-class QuizzController(private val partiesRepository: PartiesRepository) {
+class QuizzController(
+    private val partiesRepository: PartiesRepository,
+    private val useCase: ProcessResponseUseCase
+) {
 
     @PostMapping("/parties")
     fun postPartie(@RequestBody joueur: Joueur): Partie {
@@ -22,9 +28,9 @@ class QuizzController(private val partiesRepository: PartiesRepository) {
     @PostMapping("/parties/{partieId}/reponse")
     fun repondreAuDefi(
         @PathVariable("partieId") idPartie: String,
-        @RequestBody reponse: Reponse) : Partie
-    {
-        return partiesRepository.recupererPartie(idPartie)
+        @RequestBody reponse: Reponse
+    ): Defi {
+        return useCase.execute(idPartie, reponse)
     }
 }
 
@@ -36,6 +42,13 @@ class QuizzControllerAdvice {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
             .contentType(MediaType.APPLICATION_JSON)
             .body(ApiError("Tema wesh, y a pas de partie avec l'id ${e.id} !"))
+    }
+
+    @ExceptionHandler(BrandoneEstUnConException::class)
+    fun handleFuck2(e: BrandoneEstUnConException): ResponseEntity<ApiError>? {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(ApiError("Tema wesh, la partie avec l'id ${e.id}, elle est finie !"))
     }
 }
 
