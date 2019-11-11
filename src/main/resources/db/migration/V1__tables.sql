@@ -15,3 +15,15 @@ create table doggies(
     tribu varchar(255),
     signe_particulier varchar(255)
 );
+
+create table defis(
+    id varchar(255) PRIMARY KEY UNIQUE ,
+    citation varchar(500)
+);
+
+create table solution_citations(
+    idDefis varchar(255),
+    trigramme varchar(255),
+    FOREIGN KEY (idDefis) REFERENCES defis(id),
+    FOREIGN KEY (trigramme) REFERENCES doggies(trigramme),
+);
