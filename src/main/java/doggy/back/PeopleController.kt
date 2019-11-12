@@ -2,17 +2,16 @@ package doggy.back
 
 import doggy.back.doggies.DoggiesRepository
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.http.HttpStatus.*
+import org.springframework.http.HttpStatus.NOT_FOUND
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import java.lang.Exception
 
 @RestController
 class PeopleController {
 
-
-    @Autowired private lateinit var repository: DoggiesRepository
+    @Autowired
+    private lateinit var repository: DoggiesRepository
 
     @GetMapping("/doggies")
     fun getDoggies(): List<People> {
@@ -47,7 +46,7 @@ data class ApiError(
     val insulte: String = "C'est encore juju qui fait nimp c'est ça ?"
 )
 
-data class People (
+data class People(
     val trigramme: String,
     val nom: String,
     val prenom: String,

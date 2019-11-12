@@ -1,7 +1,7 @@
 version : '3'
 services :
   db:
-    image: postgres
+    image: bitnami/postgresql:11-debian-9
     container_name: doggy_postgres
     ports:
       - "5432:5432"
@@ -11,6 +11,3 @@ services :
       - POSTGRES_DB=doggy
       - DB_USER=
       - PGPASSWORD=nopwd
-    volumes:
-      #all scripts in docker-entrypoint-initdb.d folder will be run at postgresql start
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql

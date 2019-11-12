@@ -27,7 +27,7 @@ class PartiesRepository(
             sql,
             MapSqlParameterSource().addValue("id", idPartie),
             PartieMapper()
-        ).firstOrNull() ?: throw BenoitEstUnConException(idPartie)
+        ).firstOrNull() ?: throw PartieNonTrouveeException(idPartie)
     }
 }
 
@@ -42,4 +42,4 @@ class PartieMapper : RowMapper<Partie> {
     }
 }
 
-class BenoitEstUnConException(val id: String) : RuntimeException()
+class PartieNonTrouveeException(val id: String) : RuntimeException()

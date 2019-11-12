@@ -13,12 +13,12 @@ class ProcessResponseUseCase(
 
     fun execute(idPartie: String, reponse: Reponse): Defi {
         val partie = partiesRepository.recupererPartie(idPartie)
-        if (partie.statut == PartieStatut.EN_COURS.toString()) {
+        if (PartieStatut.EN_COURS.toString() == partie.statut) {
             return defiRepository.recupererDefi(reponse.idDefi)
         } else {
-            throw BrandoneEstUnConException(idPartie)
+            throw DefiNonTrouveException(idPartie)
         }
     }
 }
 
-class BrandoneEstUnConException(val id: String) : RuntimeException()
+class DefiNonTrouveException(val id: String) : RuntimeException()
