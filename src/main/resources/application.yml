@@ -20,7 +20,8 @@ management:
       mode: FULL
 spring:
   datasource:
-    url: "jdbc:postgresql://127.0.0.1:5432/doggy"
+    url: "jdbc:postgresql://localhost/doggy"
+    #url: "jdbc:postgresql://db/doggy"
     username: "doggy"
     password: "skool"
 server:
