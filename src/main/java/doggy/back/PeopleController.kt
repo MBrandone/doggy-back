@@ -22,18 +22,15 @@ class PeopleController {
     fun getDoggy(
         @PathVariable("trigramme") trigramme: String
     ): People {
-        return repository.getDoggies().find { doggy ->
-            doggy.trigramme == trigramme
-        } ?: throw DoggyNotFoundException(trigramme)
+        return repository.getDoggies(trigramme)
     }
 }
 
-class DoggyNotFoundException(trigramme: String) : Exception("Gros, aucun doggy n'a le trigramme $trigramme")
 
 @ControllerAdvice(assignableTypes = [PeopleController::class])
 class PeopleControllerAdvice {
 
-    @ExceptionHandler(DoggyNotFoundException::class)
+    @ExceptionHandler(DoggiesRepository.DoggyNotFoundException::class)
     fun trigrammeInexistant(): ResponseEntity<ApiError> {
         return ResponseEntity.status(NOT_FOUND)
             .contentType(MediaType.APPLICATION_JSON)
