@@ -29,7 +29,7 @@ class QuizzController(
     fun repondreAuDefi(
         @PathVariable("partieId") idPartie: String,
         @RequestBody reponse: Reponse
-    ): Defi {
+    ): Correction {
         return useCase.execute(idPartie, reponse)
     }
 }
