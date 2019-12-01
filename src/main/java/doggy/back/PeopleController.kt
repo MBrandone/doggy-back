@@ -13,6 +13,7 @@ class PeopleController {
     @Autowired
     private lateinit var repository: DoggiesRepository
 
+    @CrossOrigin
     @GetMapping("/doggies")
     fun getDoggies(): List<People> {
         return repository.getDoggies()
