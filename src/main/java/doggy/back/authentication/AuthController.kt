@@ -32,6 +32,7 @@ class AuthController {
 }
 
 class PasAthentifieException : RuntimeException()
+class TexistePasException(val mail: String) : RuntimeException()
 
 @ControllerAdvice
 class PasAuthentifieControllerAdvice {
@@ -41,5 +42,12 @@ class PasAuthentifieControllerAdvice {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
             .contentType(MediaType.APPLICATION_JSON)
             .body(ApiError("T'es pas authentifié donc dégage"))
+    }
+
+    @ExceptionHandler
+    fun leMecEstPasAuthentifie2(exc: TexistePasException): ResponseEntity<ApiError> {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(ApiError("T'es pas authentifié donc dégage", "si vraiment ${exc.mail} devrait être là, demande à benoit, rémi ou brondon"))
     }
 }

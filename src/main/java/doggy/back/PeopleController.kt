@@ -78,5 +78,6 @@ data class People(
     val surnom: String,
     val photo: String,
     val tribu: String,
-    val signeParticulier: String
+    val signeParticulier: String,
+    val email: String
 )

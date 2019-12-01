@@ -13,7 +13,8 @@ create table doggies(
     surnom varchar(255),
     photo varchar(255),
     tribu varchar(255),
-    signe_particulier varchar(255)
+    signe_particulier varchar(255),
+    email varchar(255)
 );
 
 create table defis(
