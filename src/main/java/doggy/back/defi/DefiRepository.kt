@@ -28,7 +28,7 @@ class DefiRepository(
             SolutionMapper()
         )
         return Defi(
-            defi.id,
+            defi.id.toString(),
             defi.citation,
             solutions
         )
@@ -38,7 +38,7 @@ class DefiRepository(
 class DefiMapper : RowMapper<DefiDb> {
     override fun mapRow(rs: ResultSet, rowNum: Int): DefiDb {
         return DefiDb(
-            id = rs.getString("id"),
+            id = rs.getInt("id"),
             citation = rs.getString("citation")
         )
     }
@@ -51,12 +51,12 @@ class SolutionMapper : RowMapper<String> {
 }
 
 data class DefiDb(
-    val id: String,
+    val id: Int,
     val citation: String
 )
 
 data class Defi(
     val id: String,
     val citation: String,
-    val solution: List<String>
+    val solutions: List<String>
 )

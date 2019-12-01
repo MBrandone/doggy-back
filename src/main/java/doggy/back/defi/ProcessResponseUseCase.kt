@@ -23,7 +23,7 @@ class ProcessResponseUseCase(
 
     private fun corriger(reponse: Reponse): Correction {
         val recupererDefi = defiRepository.recupererDefi(reponse.idDefi)
-        if (recupererDefi.citation == reponse.texte) {
+        if (recupererDefi.solutions.contains(reponse.texte)) {
             return Correction(reponse.idDefi, true)
         }
         return Correction(reponse.idDefi, false)
