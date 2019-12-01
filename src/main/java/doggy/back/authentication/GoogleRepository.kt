@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import java.util.*
 
-
 @Component
 class GoogleRepository {
 
@@ -18,7 +17,7 @@ class GoogleRepository {
     private val CLIENT_ID: String = "237114950965-te4prvsa0k3pitsibchse5hjf6gpjgvo.apps.googleusercontent.com"
     private val jacksonFactory = JacksonFactory()
 
-    fun getPrenom(idToken: String): String {
+    fun getMail(idToken: String): String {
         val verifier = GoogleIdTokenVerifier.Builder(
             GoogleNetHttpTransport.newTrustedTransport(),
             jacksonFactory
@@ -28,7 +27,7 @@ class GoogleRepository {
             val verify = verifier.verify(idToken)
             if (verify != null) {
                 val payload: IdToken.Payload = verify.payload
-                return payload.get("name").toString();
+                return payload.get("email").toString()
             }
         } catch (e: Exception) {
             LOGGER.error("Erreur google", e)

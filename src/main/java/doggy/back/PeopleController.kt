@@ -1,6 +1,10 @@
 package doggy.back
 
 import doggy.back.doggies.DoggiesRepository
+import io.swagger.annotations.Api
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
+import io.swagger.annotations.ApiOperation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus.NOT_FOUND
 import org.springframework.http.MediaType
@@ -8,6 +12,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
+@Api(value = "Liste des Doggy", description = "Pour avoir les informations des doggy", tags = ["Doggy"])
 class PeopleController {
 
     @Autowired
@@ -15,17 +20,39 @@ class PeopleController {
 
     @CrossOrigin
     @GetMapping("/doggies")
-    fun getDoggies(): List<People> {
-        return repository.getDoggies()
+    @ApiOperation(value = "Pour récupérer la liste de tous les doggy", notes = "Si t'es pas dedans ben t'es un looseur")
+    fun getDoggies(): List<PeopleJson> {
+        return repository.getDoggies().map { it.toJson() }
     }
 
     @GetMapping("/doggies/{trigramme}")
+    @ApiOperation(value = "Pour récupérer un seul doggy", notes = "Essaye pas JOL, il est parti")
     fun getDoggy(
         @PathVariable("trigramme") trigramme: String
-    ): People {
-        return repository.getDoggies(trigramme)
+    ): PeopleJson {
+        return repository.getDoggies(trigramme).toJson()
     }
+
+    private fun People.toJson() = PeopleJson(trigramme, nom, prenom, surnom, photo, tribu, signeParticulier)
 }
+
+@ApiModel(value = "Doggy")
+data class PeopleJson(
+    @ApiModelProperty(value = "Le trigramme du doggy", example = "FHI")
+    val trigramme: String,
+    @ApiModelProperty(value = "Le nom (de famille) du doggy", example = "Zidane")
+    val nom: String,
+    @ApiModelProperty(value = "Le prénom du doggy", example = "Raymonde")
+    val prenom: String,
+    @ApiModelProperty(value = "Le surnom du doggy (si il est pas bon, ben c'est la faute de brondon)", example = "La lime")
+    val surnom: String,
+    @ApiModelProperty(value = "La plus belle photo du doggy", example = "Ceci est une photo")
+    val photo: String,
+    @ApiModelProperty(value = "La tribu du doggy", example = "CONEX")
+    val tribu: String,
+    @ApiModelProperty(value = "Comment tu peux reconnaitre le doggy", example = "Le rire infâme de brondon")
+    val signeParticulier: String
+)
 
 
 @ControllerAdvice(assignableTypes = [PeopleController::class])
