@@ -2,6 +2,7 @@ package doggy.back.quizz
 
 import doggy.back.ApiError
 import doggy.back.defi.DefiNonTrouveException
+import doggy.back.defi.PartieTermineeException
 import doggy.back.defi.ProcessResponseUseCase
 import doggy.back.parties.PartieNonTrouveeException
 import doggy.back.parties.PartiesRepository
@@ -37,17 +38,24 @@ class QuizzController(
 class QuizzControllerAdvice {
 
     @ExceptionHandler(PartieNonTrouveeException::class)
-    fun handleFuck(e: PartieNonTrouveeException): ResponseEntity<ApiError>? {
+    fun gererPartieNonTrouvee(e: PartieNonTrouveeException): ResponseEntity<ApiError>? {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
             .contentType(MediaType.APPLICATION_JSON)
             .body(ApiError("Tema wesh, y a pas de partie avec l'id ${e.id} !"))
     }
 
     @ExceptionHandler(DefiNonTrouveException::class)
-    fun handleFuck2(e: DefiNonTrouveException): ResponseEntity<ApiError>? {
+    fun gererDefiNonTrouve(e: DefiNonTrouveException): ResponseEntity<ApiError>? {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
             .contentType(MediaType.APPLICATION_JSON)
             .body(ApiError("Tema wesh, le défi avec l'id ${e.id}, il existe pas !"))
+    }
+
+    @ExceptionHandler(PartieTermineeException::class)
+    fun gererPartieTerminee(e: PartieTermineeException): ResponseEntity<ApiError>? {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(ApiError("Tema wesh, la partie avec l'id ${e.id}, elle est terminé !"))
     }
 }
 
