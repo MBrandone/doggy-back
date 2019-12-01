@@ -11,17 +11,18 @@ class DefiRepository(
     private val nameJdbcTemplate: NamedParameterJdbcTemplate
 ) {
 
-    fun recupererDefi(idDefi: String): Defi {
+    fun recupererDefi(idDefi: Int): Defi {
         //language=SQL
-        val sql = "SELECT * FROM parties where id = :id"
+        val sql = "SELECT * FROM defis where id = :id"
         val defi = nameJdbcTemplate.query(
             sql,
             MapSqlParameterSource().addValue("id", idDefi),
             DefiMapper()
-        ).firstOrNull() ?: TODO()
+        ).firstOrNull() ?: throw DefiNonTrouveException(idDefi)
+
         //language=SQL
         val sql2 = "SELECT * FROM solution_citations where idDefis = :id"
-        val solutions =  nameJdbcTemplate.query(
+        val solutions = nameJdbcTemplate.query(
             sql2,
             MapSqlParameterSource().addValue("id", defi.id),
             SolutionMapper()

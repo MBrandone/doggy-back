@@ -17,17 +17,18 @@ class ProcessResponseUseCase(
         if (PartieStatut.EN_COURS.toString() == partie.statut) {
             return corriger(reponse)
         } else {
-            throw DefiNonTrouveException(idPartie)
+            throw PartieTermineeException(idPartie)
         }
     }
 
     private fun corriger(reponse: Reponse): Correction {
         val recupererDefi = defiRepository.recupererDefi(reponse.idDefi)
         if (recupererDefi.citation == reponse.texte) {
-            return Correction(reponse.idDefi, true);
+            return Correction(reponse.idDefi, true)
         }
-        return Correction(reponse.idDefi, false);
+        return Correction(reponse.idDefi, false)
     }
 }
 
-class DefiNonTrouveException(val id: String) : RuntimeException()
+class DefiNonTrouveException(val id: Int) : RuntimeException()
+class PartieTermineeException(val id: String) : RuntimeException()

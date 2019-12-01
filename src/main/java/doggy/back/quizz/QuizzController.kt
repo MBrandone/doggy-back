@@ -1,7 +1,6 @@
 package doggy.back.quizz
 
 import doggy.back.ApiError
-import doggy.back.defi.Defi
 import doggy.back.defi.DefiNonTrouveException
 import doggy.back.defi.ProcessResponseUseCase
 import doggy.back.parties.PartieNonTrouveeException
@@ -48,19 +47,19 @@ class QuizzControllerAdvice {
     fun handleFuck2(e: DefiNonTrouveException): ResponseEntity<ApiError>? {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
             .contentType(MediaType.APPLICATION_JSON)
-            .body(ApiError("Tema wesh, la partie avec l'id ${e.id}, elle est finie !"))
+            .body(ApiError("Tema wesh, le défi avec l'id ${e.id}, il existe pas !"))
     }
 }
 
 
 data class Correction(
-    val idDefi: String,
+    val idDefi: Int,
     val estCorrecte: Boolean
 )
 
 
 data class Reponse(
-    val idDefi: String,
+    val idDefi: Int,
     val texte: String
 )
 
