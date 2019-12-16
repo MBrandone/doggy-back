@@ -33,7 +33,7 @@ class PeopleController {
         return repository.getDoggies(trigramme).toJson()
     }
 
-    private fun People.toJson() = PeopleJson(trigramme, nom, prenom, surnom, photo, tribu, signeParticulier)
+    private fun People.toJson() = PeopleJson(trigramme, nom, prenom, surnom, photo, tribu, email, signeParticulier)
 }
 
 @ApiModel(value = "Doggy")
@@ -50,6 +50,8 @@ data class PeopleJson(
     val photo: String,
     @ApiModelProperty(value = "La tribu du doggy", example = "CONEX")
     val tribu: String,
+    @ApiModelProperty(value = "Le mail du doggy", example = "trololol@octo.com")
+    val email: String,
     @ApiModelProperty(value = "Comment tu peux reconnaitre le doggy", example = "Le rire infâme de brondon")
     val signeParticulier: String
 )

@@ -7,7 +7,6 @@ import com.google.api.client.json.jackson2.JacksonFactory
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
-import java.util.*
 
 @Component
 class GoogleRepository {
@@ -15,13 +14,14 @@ class GoogleRepository {
     private val LOGGER: Logger = LoggerFactory.getLogger(GoogleRepository::class.java)
 
     private val CLIENT_ID: String = "237114950965-te4prvsa0k3pitsibchse5hjf6gpjgvo.apps.googleusercontent.com"
+    private val CLIENT_ID_iOS: String = "237114950965-4e43k64d6qhb7645p7jvufri6ic0hgh0.apps.googleusercontent.com"
     private val jacksonFactory = JacksonFactory()
 
     fun getMail(idToken: String): String {
         val verifier = GoogleIdTokenVerifier.Builder(
             GoogleNetHttpTransport.newTrustedTransport(),
             jacksonFactory
-        ).setAudience(Collections.singletonList(CLIENT_ID)).build()
+        ).setAudience(listOf(CLIENT_ID, CLIENT_ID_iOS)).build()
 
         try {
             val verify = verifier.verify(idToken)
