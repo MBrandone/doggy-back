@@ -15,13 +15,21 @@ class GoogleRepository {
 
     private val CLIENT_ID: String = "237114950965-te4prvsa0k3pitsibchse5hjf6gpjgvo.apps.googleusercontent.com"
     private val CLIENT_ID_iOS: String = "237114950965-4e43k64d6qhb7645p7jvufri6ic0hgh0.apps.googleusercontent.com"
+    private val CLIENT_ID_ANDROID: String = "237114950965-7rkhg22vtsrku0b56vp969q8dlss210h.apps.googleusercontent.com"
     private val jacksonFactory = JacksonFactory()
 
     fun getMail(idToken: String): String {
         val verifier = GoogleIdTokenVerifier.Builder(
             GoogleNetHttpTransport.newTrustedTransport(),
             jacksonFactory
-        ).setAudience(listOf(CLIENT_ID, CLIENT_ID_iOS)).build()
+        ).setAudience(listOf(
+            CLIENT_ID,
+            CLIENT_ID_iOS,
+            CLIENT_ID_ANDROID,
+            "237114950965-niu6sehjl26jd5ble3rqiqvumnjhcs83.apps.googleusercontent.com",
+            "237114950965-te4prvsa0k3pitsibchse5hjf6gpjgvo.apps.googleusercontent.com",
+            "237114950965-4e43k64d6qhb7645p7jvufri6ic0hgh0.apps.googleusercontent.com"
+        )).build()
 
         try {
             val verify = verifier.verify(idToken)
