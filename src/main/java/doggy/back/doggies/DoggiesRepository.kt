@@ -25,7 +25,8 @@ class DoggiesRepository(
                 surnom = it["surnom"] as String,
                 photo = it["photo"] as String,
                 tribu = it["tribu"] as String,
-                signeParticulier = it["signe_particulier"] as String
+                signeParticulier = it["signe_particulier"] as String,
+                email = it["email"] as String
             )
         }
     }
@@ -49,7 +50,8 @@ class DoggiesRepository(
                 surnom = rs.getString("surnom"),
                 photo = rs.getString("photo"),
                 tribu = rs.getString("tribu"),
-                signeParticulier = rs.getString("signe_particulier")
+                signeParticulier = rs.getString("signe_particulier"),
+                email = rs.getString("email")
             )
         }
     }
