@@ -15,7 +15,10 @@ class GoogleRepository {
 
     private val CLIENT_ID: String = "237114950965-te4prvsa0k3pitsibchse5hjf6gpjgvo.apps.googleusercontent.com"
     private val CLIENT_ID_iOS: String = "237114950965-4e43k64d6qhb7645p7jvufri6ic0hgh0.apps.googleusercontent.com"
-    private val CLIENT_ID_ANDROID: String = "237114950965-7rkhg22vtsrku0b56vp969q8dlss210h.apps.googleusercontent.com"
+    private val CLIENT_ID_ANDROID_1: String = "237114950965-7rkhg22vtsrku0b56vp969q8dlss210h.apps.googleusercontent.com"
+    private val CLIENT_ID_ANDROID_2: String = "237114950965-niu6sehjl26jd5ble3rqiqvumnjhcs83.apps.googleusercontent.com"
+    private val CLIENT_ID_ANDROID_3: String = "237114950965-te4prvsa0k3pitsibchse5hjf6gpjgvo.apps.googleusercontent.com"
+    private val CLIENT_ID_ANDROID_4: String = "237114950965-4e43k64d6qhb7645p7jvufri6ic0hgh0.apps.googleusercontent.com"
     private val jacksonFactory = JacksonFactory()
 
     fun getMail(idToken: String): String {
@@ -25,10 +28,10 @@ class GoogleRepository {
         ).setAudience(listOf(
             CLIENT_ID,
             CLIENT_ID_iOS,
-            CLIENT_ID_ANDROID,
-            "237114950965-niu6sehjl26jd5ble3rqiqvumnjhcs83.apps.googleusercontent.com",
-            "237114950965-te4prvsa0k3pitsibchse5hjf6gpjgvo.apps.googleusercontent.com",
-            "237114950965-4e43k64d6qhb7645p7jvufri6ic0hgh0.apps.googleusercontent.com"
+            CLIENT_ID_ANDROID_1,
+            CLIENT_ID_ANDROID_2,
+            CLIENT_ID_ANDROID_3,
+            CLIENT_ID_ANDROID_4
         )).build()
 
         try {
@@ -39,9 +42,7 @@ class GoogleRepository {
             }
         } catch (e: Exception) {
             LOGGER.error("Erreur google", e)
-            return "Erreur d'authent"
         }
-
-        return "pas authentifié"
+        throw PasAuthentifieException()
     }
 }

@@ -15,7 +15,7 @@ class AuthenticationHandler(
     override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
         val token = request.getHeader("id_token")
         if (token == null) {
-            throw PasAthentifieException()
+            throw PasAuthentifieException()
         } else {
             val mail = googleRepository.getMail(token)
             doggiesRepository.getDoggies().find { it.email == mail } ?: throw TexistePasException(mail)
