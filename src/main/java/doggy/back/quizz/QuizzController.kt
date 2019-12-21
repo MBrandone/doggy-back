@@ -25,9 +25,9 @@ class QuizzController(
         return partie
     }
 
-    @PostMapping("/parties/{partieId}/reponse")
+    @PostMapping("/parties/{idPartie}/reponse")
     fun repondreAuDefi(
-        @PathVariable("partieId") idPartie: String,
+        @PathVariable("idPartie") idPartie: String,
         @RequestBody reponse: Reponse
     ): Correction {
         return useCase.execute(idPartie, reponse)
