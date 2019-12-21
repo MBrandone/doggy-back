@@ -1,9 +1,8 @@
 package doggy.back.quizz
 
 import doggy.back.ApiError
-import doggy.back.defi.DefiNonTrouveException
-import doggy.back.defi.PartieTermineeException
-import doggy.back.defi.ProcessResponseUseCase
+import doggy.back.defi.*
+import doggy.back.domain.entites.DefiAvecPropositionsDeReponses
 import doggy.back.parties.PartieNonTrouveeException
 import doggy.back.parties.PartiesRepository
 import org.springframework.http.HttpStatus
@@ -15,7 +14,9 @@ import java.util.*
 @RestController
 class QuizzController(
     private val partiesRepository: PartiesRepository,
-    private val useCase: ProcessResponseUseCase
+    private val defisRepository: DefisRepository,
+    private val useCase: ProcessResponseUseCase,
+    private val recupererNouveauDefi: recupererNouveauDefi
 ) {
 
     @PostMapping("/parties")
@@ -31,6 +32,12 @@ class QuizzController(
         @RequestBody reponse: Reponse
     ): Correction {
         return useCase.execute(idPartie, reponse)
+    }
+
+    @CrossOrigin
+    @GetMapping("/defi")
+    fun recupererUnDefi(): DefiAvecPropositionsDeReponses {
+        return recupererNouveauDefi.execute()
     }
 }
 

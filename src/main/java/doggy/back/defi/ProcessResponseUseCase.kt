@@ -31,4 +31,6 @@ class ProcessResponseUseCase(
 }
 
 class DefiNonTrouveException(val id: Int) : RuntimeException()
+class PasDeDefiDisponibleException() : RuntimeException()
+class SolutionNonTrouveException() : RuntimeException()
 class PartieTermineeException(val id: String) : RuntimeException()
