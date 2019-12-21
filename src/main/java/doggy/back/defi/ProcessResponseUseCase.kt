@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component
 @Component
 class ProcessResponseUseCase(
     private val partiesRepository: PartiesRepository,
-    private val defiRepository: DefiRepository
+    private val defisRepository: DefisRepository
 ) {
 
     fun execute(idPartie: String, reponse: Reponse): Correction {
@@ -22,7 +22,7 @@ class ProcessResponseUseCase(
     }
 
     private fun corriger(reponse: Reponse): Correction {
-        val recupererDefi = defiRepository.recupererDefi(reponse.idDefi)
+        val recupererDefi = defisRepository.recupererDefi(reponse.idDefi)
         if (recupererDefi.solutions.contains(reponse.texte)) {
             return Correction(reponse.idDefi, true)
         }
