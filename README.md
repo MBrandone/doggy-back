@@ -4,7 +4,8 @@
 ### Heroku
 1. demande à BME de te donner le compte heroku
 2. log toi avec la heroku belt `brew install heroku/brew/heroku` puis `heroku login`
-3. pour deployer la branche master: `git push heroku master`
+3. ajoute la remote heroku avec la commande : `heroku git:remote -a doggy-back`
+4. pour deployer la branche master: `git push heroku master`
 
 ## Dev 
 ### Prerequis:
