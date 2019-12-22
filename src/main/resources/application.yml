@@ -1,7 +1,7 @@
 spring:
   datasource:
-    url: "jdbc:postgresql://localhost/doggy"
-    #url: "jdbc:postgresql://db/doggy"
+    #url: "jdbc:postgresql://localhost/doggy"
+    url: "jdbc:postgresql://db/doggy"
     username: "doggy"
     password: "skool"
 server:
