@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*
 class AuthController {
 
     @Autowired
-    private lateinit var googleRepository: GoogleRepository
+    private lateinit var googleAuthRepository: GoogleAuthRepository
 
     @GetMapping("/auth")
     @ApiOperation(
@@ -26,7 +26,7 @@ class AuthController {
         @ApiParam(value = "id_token à obtenir depuis ton front", example = "un très long token", required = true)
         @RequestParam("id") id: String
     ): String {
-        return googleRepository.getMail(id)
+        return googleAuthRepository.getMail(id)
     }
 
 }
