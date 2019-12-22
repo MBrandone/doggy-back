@@ -1,1 +1,1 @@
-web: java -jar build/libs/back-1.0-SNAPSHOT.jar
+web: java -jar build/libs/back-1.0-SNAPSHOT.jar --server.port=$PORT
