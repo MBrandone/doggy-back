@@ -1,6 +1,6 @@
-#Back de la doggy :)
+# Back de la doggy :)
 
-##Deployment
+## Deployment
 ### Heroku
 1. demande à BME de te donner le compte heroku
 2. log toi avec la heroku belt `brew install heroku/brew/heroku` puis `heroku login`
