@@ -10,7 +10,7 @@ class NotifyUsersUseCase(
 
     fun execute(sender: String, title: String, message: String) {
         val usersToNotify = notificationTokensRepository.getTokens()
-            .filterNot { it.userTrigramme == sender }
+            .filterNot { it.userTrigramme.equals(sender, true) }
         notifyUsersRepository.notifyUsers(usersToNotify, title, message)
     }
 }
