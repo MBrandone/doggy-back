@@ -1,6 +1,7 @@
-package doggy.back.authentication
+package doggy.back.rest.authentication
 
-import doggy.back.doggies.DoggiesRepository
+import doggy.back.domain.doggy.DoggyPersistance
+import doggy.back.infra.authentication.GoogleRepository
 import org.springframework.stereotype.Component
 import org.springframework.web.servlet.HandlerInterceptor
 import javax.servlet.http.HttpServletRequest
@@ -9,7 +10,7 @@ import javax.servlet.http.HttpServletResponse
 @Component
 class AuthenticationHandler(
     private val googleAuthRepository: GoogleAuthRepository,
-    private val doggiesRepository: DoggiesRepository
+    private val doggyPersistance: DoggyPersistance
 ) : HandlerInterceptor {
 
     override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
@@ -18,7 +19,7 @@ class AuthenticationHandler(
             throw PasAuthentifieException()
         } else {
             val mail = googleAuthRepository.getMail(token)
-            doggiesRepository.getDoggies().find { it.email == mail } ?: throw TexistePasException(mail)
+            doggyPersistance.recupererToutLesDoggies().find { it.email == mail } ?: throw TexistePasException(mail)
         }
         return super.preHandle(request, response, handler)
     }

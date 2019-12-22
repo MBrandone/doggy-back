@@ -1,4 +1,6 @@
-package doggy.back.domain.entites
+package doggy.back.rest.quizz
+
+import doggy.back.domain.entites.PropositionDeReponse
 
 data class DefiAvecPropositionsDeReponses(
     val id: String,

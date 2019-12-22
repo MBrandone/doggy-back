@@ -1,5 +1,6 @@
 package doggy.back.doggies
 
+import doggy.back.infra.doggies.DoggyRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -10,10 +11,10 @@ import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 
 @RunWith(MockitoJUnitRunner::class)
-class DoggiesRepositoryTest {
+class DoggyRepositoryTest {
 
     @InjectMocks
-    private lateinit var repository: DoggiesRepository
+    private lateinit var repository: DoggyRepository
 
     @Mock
     private lateinit var jdbcTemplate: JdbcTemplate;
