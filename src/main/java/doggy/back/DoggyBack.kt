@@ -3,7 +3,6 @@ package doggy.back
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.web.client.RestTemplateBuilder
 import org.springframework.context.annotation.Bean
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.web.client.RestTemplate
@@ -16,11 +15,9 @@ class DoggyBack {
     fun objectMapper() = jacksonObjectMapper()
 
     @Bean
-    fun restTemplate():RestTemplate {
-        return RestTemplateBuilder().build()
-    }
+    fun restTemplate() = RestTemplate()
 
-    @Scheduled(fixedDelay=600000)
+    @Scheduled(fixedDelay = 600000)
     fun pingFront(restTemplate: RestTemplate) {
         restTemplate.getForObject<String>("https://doggy-skool-app.herokuapp.com/")
     }
