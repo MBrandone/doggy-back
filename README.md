@@ -1,13 +1,18 @@
-### Deployment
+#Back de la doggy :)
 
-1. demande à BEJ de te donner une AWS ssh key et enregistre la
-2. `./gradlew clean build`
-3. `scp -i {chemin-vers-ta-clef} build/libs/back-1.0-SNAPSHOT.jar ec2-user@ec2-35-180-100-132.eu-west-3.compute.amazonaws.com:~/doggy-back/build/libs/`
-4. si erreur WARNING: UNPROTECTED PRIVATE KEY FILE! :
-    * `chmod 600 ta-clef`
-    * puis relance
-5. execute:
-    * `ssh -i {chemin-vers-ta-clé} ec2-user@ec2-35-180-100-132.eu-west-3.compute.amazonaws.com`
-6. `cd doggy-back`
-7. `docker-compose up -d --build`
+##Deployment
+### Heroku
+1. demande à BME de te donner le compte heroku
+2. log toi avec la heroku belt `brew install heroku/brew/heroku` puis `heroku login`
+3. pour deployer la branche master: `git push heroku master`
+
+## Dev 
+### Prerequis:
+- Java 1.8
+
+### Lancement des tests
+1. `./gradlew clean test`
+
+### Lancement de l'appli en local
+1.  `./gradlew clean bootRun`
 
