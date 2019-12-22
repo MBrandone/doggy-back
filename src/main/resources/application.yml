@@ -7,6 +7,14 @@ spring:
 server:
   port: 8080
 
+google:
+  clientId: "237114950965-te4prvsa0k3pitsibchse5hjf6gpjgvo.apps.googleusercontent.com"
+  clientIdIos: "237114950965-4e43k64d6qhb7645p7jvufri6ic0hgh0.apps.googleusercontent.com"
+  clientIdAndroid1: "237114950965-7rkhg22vtsrku0b56vp969q8dlss210h.apps.googleusercontent.com"
+  clientIdAndroid2: "237114950965-niu6sehjl26jd5ble3rqiqvumnjhcs83.apps.googleusercontent.com"
+  clientIdAndroid3: "237114950965-te4prvsa0k3pitsibchse5hjf6gpjgvo.apps.googleusercontent.com"
+  clientIdAndroid4: "237114950965-4e43k64d6qhb7645p7jvufri6ic0hgh0.apps.googleusercontent.com"
+
 # Swagger
 springfox:
   documentation:

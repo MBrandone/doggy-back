@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse
 
 @Component
 class AuthenticationHandler(
-    private val googleRepository: GoogleRepository,
+    private val googleAuthRepository: GoogleAuthRepository,
     private val doggiesRepository: DoggiesRepository
 ) : HandlerInterceptor {
 
@@ -17,7 +17,7 @@ class AuthenticationHandler(
         if (token == null) {
             throw PasAuthentifieException()
         } else {
-            val mail = googleRepository.getMail(token)
+            val mail = googleAuthRepository.getMail(token)
             doggiesRepository.getDoggies().find { it.email == mail } ?: throw TexistePasException(mail)
         }
         return super.preHandle(request, response, handler)
