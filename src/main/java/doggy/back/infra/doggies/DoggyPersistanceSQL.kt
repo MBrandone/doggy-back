@@ -4,6 +4,7 @@ import doggy.back.domain.doggy.DoggyPersistance
 import doggy.back.domain.entites.Doggy
 import org.springframework.stereotype.Component
 import java.util.*
+import kotlin.streams.toList
 
 @Component
 class DoggyPersistanceSQL(
@@ -13,6 +14,12 @@ class DoggyPersistanceSQL(
 
     override fun recupererToutLesDoggies(): List<Doggy> {
         return doggyRepository.findAll().map { doggyMapper.toDoggy(it) }
+    }
+
+    override fun recupererDesDoggyAleatoirement(nbDoggies: Int): MutableList<Doggy> {
+        val recupererToutLesDoggies = recupererToutLesDoggies()
+        recupererToutLesDoggies.shuffled()
+        return recupererToutLesDoggies.stream().limit(nbDoggies.toLong()).toList().toMutableList()
     }
 
     override fun recupererUnDoggy(trigramme: String): Optional<Doggy> {

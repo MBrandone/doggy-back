@@ -1,7 +1,6 @@
 package doggy.back.infra.doggies
 
 import doggy.back.domain.entites.Doggy
-import doggy.back.infra.defi.DoggyDatabase
 import org.springframework.stereotype.Component
 
 @Component

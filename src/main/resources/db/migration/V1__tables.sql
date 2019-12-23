@@ -23,8 +23,8 @@ create table citations(
 );
 
 create table auteurs_citations(
-    idCitation INTEGER,
+    id_citation INTEGER,
     trigramme varchar(255),
-    FOREIGN KEY (idCitation) REFERENCES citations(id),
+    FOREIGN KEY (id_citation) REFERENCES citations(id),
     FOREIGN KEY (trigramme) REFERENCES doggies(trigramme)
 );

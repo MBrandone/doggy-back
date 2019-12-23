@@ -1,8 +1,15 @@
 spring:
   datasource:
-    url: "jdbc:postgresql://localhost/doggy"
+    #url: "jdbc:postgresql://localhost/doggy"
+    url: "jdbc:postgresql://db/doggy"
     username: "doggy"
     password: "skool"
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
 server:
   port: 8080
 

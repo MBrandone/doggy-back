@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component
 @Component
 class PartieDatabaseMapper {
     fun toPartieDatabase(partie: Partie): PartieDatabase =
-        PartieDatabase(
-            partie.id,
-            partie.joueur,
-            partie.score,
-            partie.statut
-        )
+        PartieDatabase().apply {
+            id = partie.id
+            joueur = partie.joueur
+            score = partie.score
+            statut = partie.statut
+        }
 }

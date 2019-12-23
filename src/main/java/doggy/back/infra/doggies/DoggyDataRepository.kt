@@ -1,10 +1,7 @@
 package doggy.back.infra.doggies
 
-import doggy.back.infra.defi.DoggyDatabase
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Component
 
 @Component
-interface DoggyDataRepository : CrudRepository<DoggyDatabase, String> {
-
-}
+interface DoggyDataRepository : JpaRepository<DoggyDatabase, String>

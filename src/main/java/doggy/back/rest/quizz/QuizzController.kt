@@ -3,6 +3,7 @@ package doggy.back.rest.quizz
 import doggy.back.domain.defi.CitationNonTrouveException
 import doggy.back.domain.defi.PartieTermineeException
 import doggy.back.domain.defi.recupererNouveauDefi
+import doggy.back.domain.entites.Citation
 import doggy.back.infra.parties.PartieNonTrouveeException
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -16,7 +17,7 @@ class QuizzController(
 
     @CrossOrigin
     @GetMapping("/defi")
-    fun recupererUnDefi(): DefiAvecPropositionsDeReponses {
+    fun recupererUnDefi(): Citation {
         return recupererNouveauDefi.execute()
     }
 }

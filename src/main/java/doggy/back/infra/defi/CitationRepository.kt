@@ -5,6 +5,7 @@ import doggy.back.domain.defi.PasDeDefiDisponibleException
 import doggy.back.domain.defi.SolutionNonTrouveException
 import doggy.back.domain.entites.Citation
 import doggy.back.domain.entites.PropositionDeReponse
+import doggy.back.infra.doggies.DoggyDatabase
 import org.springframework.jdbc.core.RowMapper
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
@@ -22,7 +23,7 @@ class CitationRepository(
         val citationDatabase = nameJdbcTemplate.query(
             sql,
             MapSqlParameterSource().addValue("id", idCitation),
-            CitationMapper()
+            CitationMapper2()
         ).firstOrNull() ?: throw CitationNonTrouveException(idCitation)
 
         //language=SQL
@@ -34,8 +35,8 @@ class CitationRepository(
             AuteurMapper()
         )
         return Citation(
-            citationDatabase.id.toString(),
-            citationDatabase.citation,
+            citationDatabase.id,
+            citationDatabase.texte,
             emptyList()
         )
     }
@@ -45,22 +46,22 @@ class CitationRepository(
         val sqlDefi = "SELECT * FROM defis ORDER BY random() LIMIT 1"
         val defi = nameJdbcTemplate.query(
             sqlDefi,
-            CitationMapper()
+            CitationMapper2()
         ).firstOrNull() ?: throw PasDeDefiDisponibleException()
 
-        return CitationDatabase(
-            defi.id.toString(),
-            defi.citation,
-            emptyList()
-        )
+        return CitationDatabase().apply {
+            id = defi.id
+            texte = defi.texte
+            auteurs = emptyList()
+        }
     }
 
-    fun recupererSolutionDefi(idDefi: String): PropositionDeReponse {
+    fun recupererSolutionDefi(idDefi: Int): PropositionDeReponse {
         //language=SQL
         val sqlSolutionTrigramme = "SELECT trigramme FROM solution_citations where idDefis = :id"
         val solutionTrigramme = nameJdbcTemplate.query(
             sqlSolutionTrigramme,
-            MapSqlParameterSource().addValue("id", idDefi.toInt()),
+            MapSqlParameterSource().addValue("id", idDefi),
             AuteurMapper()
         ).firstOrNull() ?: throw SolutionNonTrouveException()
 
@@ -92,42 +93,42 @@ class CitationRepository(
     }
 }
 
-class CitationMapper : RowMapper<CitationDatabase> {
+class CitationMapper2 : RowMapper<CitationDatabase> {
     override fun mapRow(rs: ResultSet, rowNum: Int): CitationDatabase {
-        return CitationDatabase(
-            id = rs.getString("id"),
-            citation = rs.getString("texte"),
+        return CitationDatabase().apply {
+            id = rs.getInt("id")
+            texte = rs.getString("texte")
             auteurs = emptyList()
-        )
+        }
     }
 }
 
 class AuteurMapper : RowMapper<DoggyDatabase> {
     override fun mapRow(rs: ResultSet, rowNum: Int): DoggyDatabase {
-        return DoggyDatabase(
-            trigramme = rs.getString("trigramme"),
-            surnom = rs.getString("surnom"),
-            photo = rs.getString("photo"),
-            email = rs.getString("email"),
-            nom = rs.getString("nom"),
-            prenom = rs.getString("prenom"),
-            signeParticulier = rs.getString("signe_particulier"),
+        return DoggyDatabase().apply {
+            trigramme = rs.getString("trigramme")
+            surnom = rs.getString("surnom")
+            photo = rs.getString("photo")
+            email = rs.getString("email")
+            nom = rs.getString("nom")
+            prenom = rs.getString("prenom")
+            signeParticulier = rs.getString("signe_particulier")
             tribu = rs.getString("tribu")
-        )
+        }
     }
 }
 
 class PropositionMapper : RowMapper<DoggyDatabase> {
     override fun mapRow(rs: ResultSet, rowNum: Int): DoggyDatabase {
-        return DoggyDatabase(
-            trigramme = rs.getString("trigramme"),
-            surnom = rs.getString("surnom"),
-            photo = rs.getString("photo"),
-            email = rs.getString("email"),
-            nom = rs.getString("nom"),
-            prenom = rs.getString("prenom"),
-            signeParticulier = rs.getString("signe_particulier"),
+        return DoggyDatabase().apply {
+            trigramme = rs.getString("trigramme")
+            surnom = rs.getString("surnom")
+            photo = rs.getString("photo")
+            email = rs.getString("email")
+            nom = rs.getString("nom")
+            prenom = rs.getString("prenom")
+            signeParticulier = rs.getString("signe_particulier")
             tribu = rs.getString("tribu")
-        )
+        }
     }
 }

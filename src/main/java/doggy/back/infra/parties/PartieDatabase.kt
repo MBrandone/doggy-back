@@ -6,10 +6,10 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "parties")
-data class PartieDatabase(
+class PartieDatabase {
     @Id
-    val id: String = "",
-    val joueur: String = "",
-    val score: Int = 0,
-    val statut: String = ""
-)
+    lateinit var id: String
+    lateinit var joueur: String
+    var score: Int = 0
+    lateinit var statut: String
+}
