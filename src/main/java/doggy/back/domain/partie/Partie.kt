@@ -1,4 +1,4 @@
-package doggy.back.domain.entites
+package doggy.back.domain.partie
 
 import doggy.back.rest.quizz.PartieStatut
 import java.util.*

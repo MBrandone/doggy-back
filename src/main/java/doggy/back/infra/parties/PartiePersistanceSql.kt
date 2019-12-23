@@ -1,19 +1,16 @@
-package doggy.back.domain
+package doggy.back.infra.parties
 
-import doggy.back.domain.entites.Partie
-import doggy.back.infra.parties.PartieDatabaseMapper
-import doggy.back.infra.parties.PartiesDataRepository
+import doggy.back.domain.partie.Partie
+import doggy.back.domain.partie.PartiePersistance
 import org.springframework.stereotype.Component
 
 @Component
-class CreerPartie(
+class PartiePersistanceSql(
     private val partiesRepository: PartiesDataRepository,
     private val partieDatabaseMapper: PartieDatabaseMapper
-) {
-    fun execute(joueur: String): Partie {
-        val partie = Partie.init(joueur)
+) : PartiePersistance {
+    override fun sauverPartie(partie: Partie) {
         val partieDatabase = partieDatabaseMapper.toPartieDatabase(partie)
         partiesRepository.save(partieDatabase)
-        return partie
     }
 }

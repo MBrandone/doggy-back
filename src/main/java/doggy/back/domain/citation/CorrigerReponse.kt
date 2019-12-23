@@ -1,11 +1,10 @@
-package doggy.back.domain.defi
+package doggy.back.domain.citation
 
 import doggy.back.infra.defi.CitationDataRepository
 import doggy.back.infra.parties.PartieNonTrouveeException
 import doggy.back.infra.parties.PartiesDataRepository
-import doggy.back.rest.quizz.Correction
+import doggy.back.rest.quizz.PartieController
 import doggy.back.rest.quizz.PartieStatut
-import doggy.back.rest.quizz.Reponse
 import org.springframework.stereotype.Component
 
 @Component
@@ -13,7 +12,7 @@ class CorrigerReponse(
     private val partiesRepository: PartiesDataRepository,
     private val citationRepository: CitationDataRepository
 ) {
-    fun execute(idPartie: String, reponse: Reponse): Correction {
+    fun execute(idPartie: String, reponse: PartieController.Reponse): PartieController.Correction {
         val partie = partiesRepository.findById(idPartie).orElseThrow { PartieNonTrouveeException(idPartie) }
         if (PartieStatut.EN_COURS.toString() == partie.statut) {
             return corriger(reponse)
@@ -22,16 +21,15 @@ class CorrigerReponse(
         }
     }
 
-    private fun corriger(reponse: Reponse): Correction {
-        val citation = citationRepository.findById(reponse.idCitation).get()
+    private fun corriger(reponse: PartieController.Reponse): PartieController.Correction {
+        val citation = citationRepository.findById(reponse.idCitation)
+            .orElseThrow { CitationNonTrouveException(reponse.idCitation) }
         if (citation.auteurs.any { it.trigramme == reponse.texte }) {
-            return Correction(reponse.idCitation, true)
+            return PartieController.Correction(reponse.idCitation, true)
         }
-        return Correction(reponse.idCitation, false)
+        return PartieController.Correction(reponse.idCitation, false)
     }
 }
 
 class CitationNonTrouveException(val id: Int) : RuntimeException()
-class PasDeDefiDisponibleException() : RuntimeException()
-class SolutionNonTrouveException() : RuntimeException()
 class PartieTermineeException(val id: String) : RuntimeException()

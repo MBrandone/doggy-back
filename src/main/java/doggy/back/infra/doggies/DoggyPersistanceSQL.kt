@@ -1,7 +1,7 @@
 package doggy.back.infra.doggies
 
+import doggy.back.domain.doggy.Doggy
 import doggy.back.domain.doggy.DoggyPersistance
-import doggy.back.domain.entites.Doggy
 import org.springframework.stereotype.Component
 import java.util.*
 import kotlin.streams.toList
@@ -16,10 +16,10 @@ class DoggyPersistanceSQL(
         return doggyRepository.findAll().map { doggyMapper.toDoggy(it) }
     }
 
-    override fun recupererDesDoggyAleatoirement(nbDoggies: Int): MutableList<Doggy> {
-        val recupererToutLesDoggies = recupererToutLesDoggies()
-        recupererToutLesDoggies.shuffled()
-        return recupererToutLesDoggies.stream().limit(nbDoggies.toLong()).toList().toMutableList()
+    override fun recupererDesDoggyAleatoirementSans(nbDoggies: Long, trigramme: String): MutableList<Doggy> {
+        return recupererToutLesDoggies().shuffled().stream()
+            .filter { it.trigramme != trigramme }
+            .limit(nbDoggies).toList().toMutableList()
     }
 
     override fun recupererUnDoggy(trigramme: String): Optional<Doggy> {

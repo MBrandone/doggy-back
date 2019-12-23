@@ -1,6 +1,5 @@
 package doggy.back.domain.doggy
 
-import doggy.back.domain.entites.Doggy
 import doggy.back.infra.doggies.DoggyNotFoundException
 import org.springframework.stereotype.Component
 

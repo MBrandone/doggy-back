@@ -1,4 +1,6 @@
-package doggy.back.domain.entites
+package doggy.back.domain.citation
+
+import doggy.back.domain.doggy.Doggy
 
 data class Citation(
     val id: Int,

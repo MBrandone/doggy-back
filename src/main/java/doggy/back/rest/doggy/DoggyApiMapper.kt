@@ -1,6 +1,6 @@
 package doggy.back.rest.doggy
 
-import doggy.back.domain.entites.Doggy
+import doggy.back.domain.doggy.Doggy
 import org.springframework.stereotype.Component
 
 @Component

@@ -1,4 +1,4 @@
-package doggy.back.domain.entites
+package doggy.back.domain.citation
 
 interface CitationPersistance {
     fun getRandomCitation(): Citation

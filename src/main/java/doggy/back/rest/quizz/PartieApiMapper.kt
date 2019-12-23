@@ -1,6 +1,6 @@
 package doggy.back.rest.quizz
 
-import doggy.back.domain.entites.Partie
+import doggy.back.domain.partie.Partie
 import org.springframework.stereotype.Component
 
 @Component

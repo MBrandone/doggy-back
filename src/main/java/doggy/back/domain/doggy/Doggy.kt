@@ -1,4 +1,4 @@
-package doggy.back.domain.entites
+package doggy.back.domain.doggy
 
 data class Doggy(
     val trigramme: String,

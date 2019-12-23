@@ -1,6 +1,6 @@
 package doggy.back.infra.defi
 
-import doggy.back.domain.entites.Citation
+import doggy.back.domain.citation.Citation
 import doggy.back.infra.doggies.DoggyMapper
 import org.springframework.stereotype.Component
 
