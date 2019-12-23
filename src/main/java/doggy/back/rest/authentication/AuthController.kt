@@ -1,6 +1,6 @@
-package doggy.back.authentication
+package doggy.back.rest.authentication
 
-import doggy.back.ApiError
+import doggy.back.authentication.GoogleAuthRepository
 import io.swagger.annotations.Api
 import io.swagger.annotations.ApiOperation
 import io.swagger.annotations.ApiParam
@@ -11,7 +11,11 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@Api(value = "Google Auth", description = "Pour récupérer les infos de connexion de ton compte ", tags = ["Authentification"])
+@Api(
+    value = "Google Auth",
+    description = "Pour récupérer les infos de connexion de ton compte ",
+    tags = ["Authentification"]
+)
 class AuthController {
 
     @Autowired
@@ -38,16 +42,16 @@ class TexistePasException(val mail: String) : RuntimeException()
 class PasAuthentifieControllerAdvice {
 
     @ExceptionHandler
-    fun leMecEstPasAuthentifie(exc: PasAuthentifieException): ResponseEntity<ApiError> {
+    fun leMecEstPasAuthentifie(exc: PasAuthentifieException): ResponseEntity<String> {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
             .contentType(MediaType.APPLICATION_JSON)
-            .body(ApiError("T'es pas authentifié donc dégage"))
+            .body("T'es pas authentifié donc dégage")
     }
 
     @ExceptionHandler
-    fun leMecEstPasAuthentifie2(exc: TexistePasException): ResponseEntity<ApiError> {
+    fun leMecEstPasAuthentifie2(exc: TexistePasException): ResponseEntity<String> {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
             .contentType(MediaType.APPLICATION_JSON)
-            .body(ApiError("T'es pas authentifié donc dégage", "si vraiment ${exc.mail} devrait être là, demande à benoit, rémi ou brondon"))
+            .body("T'es pas authentifié donc dégage, si vraiment ${exc.mail} devrait être là, demande à benoit, rémi ou brondon")
     }
 }

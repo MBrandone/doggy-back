@@ -44,379 +44,379 @@ values ('RBO', 'Botter', 'Rafaëlle', 'Le fantôme',
         'https://firebasestorage.googleapis.com/v0/b/doggy-chat.appspot.com/o/doggy-photos%2Frafaelle.jpg?alt=media&token=d361b266-d31d-49d2-b682-52e9c2ba091f',
         'Autres', 'parle beaucoup trop', 'yolo');
 
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (1, 'Blague zoophile ? c''est un mec qui rentre dans un bar ...');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (2, 'Blague zoophile ? c''est un mec qui prend son élan ...');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (3, 'Y a 5 places dans une Mégane.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (4, 'Salto cul nu !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (5, 'Il est ricard moins l''quart.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (6, 'Problème de chaudière ...');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (7, 'Moi le matin je n''enfile pas que des pantoufles');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (8, 'Je fais beaucoup d''oral.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (9, 'Pépite !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (10, 'Le vrai nom de PANDA, c''est la ligue MOA.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (11, 'Arrêtez de me limer !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (12, 'Nom de Zeus !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (13, 'Rio, à Barra Club, l''autoroute du cul je te dis !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (14, 'Missile !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (15, 'Tout en alcoolisme ...');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (16, 'Carton !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (17, 'Bolide !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (18, 'Tu passeras dans mon bureau que je te rapelle les valeurs de la team Jachère.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (19, 'Et ce soir ... on baise !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (20, 'OOOOOUUuuuuuwwwAAAAAAAAAAAAAAA');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (21, 'j''en veux Jooooooooooe !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (22, 'Combien tu mesures ???? ... Jamais vu un tas de merde aussi haut !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (23, 'c''est ça que j''aime bien chez toi ... !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (24, 'Comme elle est belle !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (25, 'j''étais à 2 doigts de mettre le 3ème');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (26, 'Molo, on a dit !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (27, 'j''ai envie de tout casser.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (28, 'Allez ! Ciao les cons !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (29, 'Le barman, il s''appelait Ivan ... Ivan Aboire');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (30, 'Et puis une enquête ça fera pas de mal non plus ! Qu''on nettoie un peu OCTO !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (31, 'Les meufs, tu leurs parles ... et elles répondent !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (32, 'Mais téma wesh !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (33, 'Ah !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (34, 'c''est troooooooop !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (35, 'DAMN !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (36, 'Nan mais pour moi ...');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (37, 'Ah ! y''a des olives par ici');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (38, 'Olive !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (39, 'Ce soir, j''ai Switch');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (40, 'On est quel jooooouuuuuur ?!');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (41, 'SSBU chez moi ce soir ?');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (42, 'Pas ce soir, c''est Shabbat.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (43, 'Je te fais un Revolut ?');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (44, 'Tu me fais un Revolut ?');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (45, 'Oh, mais c''est Rafabelle !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (46, 'On dit pas qu''elle est bonne !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (47, 'Vous êtes trop des choux !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (48, 'Brondon !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (49, 'Je suis une star d''UX !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (50, 'Tu te calmes Remido !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (51, 'Devinez qui j''ai trouvé ? La Ricaravane');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (52, 'Pas une grande semaine pour mardinema :(');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (53, 'On se retrouve en bas, on y va molo.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (54, 'Jarrive dans une heure, je suis à Nogent');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (55, 'j''ai besoin de bitcher');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (56,
         'Pour tenir la croissance en CA, faut tenir la croissance en effectif et pour l''instant ça fait que baisser, donc pour l''instant ça pue. Car on doit faire plus de CA avec moins de gens, donc plus de TACE');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (57, 'Des motivés pour faire Paris-Fontainebleau en trottinette ?');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (58, 'Un peu de violence pour rappeler certains principes, c''est comme ça que ça rentre,');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (59, 'Ah mais moi, j''aime bien quand les mecs viennent me voir.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (60, 'Ooooh, trop mignons vos messages !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (61, 'Nan mais moi ...');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (62, 'Il etait quand même archi beau gosse !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (63, 'Senior Manager de mon cul !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (64, 'Des shots !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (65, 'Tournée de shots !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (66, 'j''ai des horaires de sortie, je ne suis pas une femme libre.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (67, 'La loi des deux R : un ricard et une rose, ça rend une femme heureuse.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (68, 'Bon, soit on boit correctement, soit on y va !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (69, 'Oh l''enfer !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (70, 'Nan mais ce mec ...');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (71, 'On a pas 95 ans ...');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (72, 'Vas-y fonce !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (73, 'Girl Power !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (74, 'Team Laboure !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (75, 'Je suis à Creteil Soleil ce WE.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (76, 'c''est jamais assez chaud');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (77, 'Toi je t''aime bien !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (78, 'Toi ..., je te kiffe !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (79, 'Manager, c''est pas mettre des doigts.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (80, 'Ouais, ça te fait marrer toi.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (81, 'j''arrive dans 1h avec des tréteaux');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (82, 'Qui est dispo pour un déménagement, j''offre les bières.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (83, 'Y a que moi qui ait envie de ken avec cette chaleur ?');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (84, 'Ils se sont toujours pas pécho ou quoi ? Je sens ce genre de truc ...');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (85, 'Nan je bois pas ce soir, je fais mon dry january !');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (86, 'Ah mais moi, je vais sur Grinder je peux trouver toute suite ...');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (87, 'Quand je suis triste, j''ai besoin de boire.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (88, 'Je suis une vraie pute des langages.');
-insert into defis(id, citation)
+insert into citations(id, texte)
 values (89, 'Tiens ! Va au Kaddok t''acheter de l''alcool !');
 
-insert into solution_citations
+insert into auteurs_citations
 values (1, 'CYG');
-insert into solution_citations
+insert into auteurs_citations
 values (2, 'CYG');
-insert into solution_citations
+insert into auteurs_citations
 values (3, 'CYG');
-insert into solution_citations
+insert into auteurs_citations
 values (4, 'CYG');
-insert into solution_citations
+insert into auteurs_citations
 values (5, 'CYG');
-insert into solution_citations
+insert into auteurs_citations
 values (6, 'CYG');
-insert into solution_citations
+insert into auteurs_citations
 values (7, 'CYG');
-insert into solution_citations
+insert into auteurs_citations
 values (8, 'CYG');
-insert into solution_citations
+insert into auteurs_citations
 values (9, 'RDO');
-insert into solution_citations
+insert into auteurs_citations
 values (10, 'RDO');
-insert into solution_citations
+insert into auteurs_citations
 values (11, 'RDO');
-insert into solution_citations
+insert into auteurs_citations
 values (12, 'RDO');
-insert into solution_citations
+insert into auteurs_citations
 values (13, 'RDO');
-insert into solution_citations
+insert into auteurs_citations
 values (14, 'RDO');
-insert into solution_citations
+insert into auteurs_citations
 values (15, 'RDO');
-insert into solution_citations
+insert into auteurs_citations
 values (16, 'RDO');
-insert into solution_citations
+insert into auteurs_citations
 values (17, 'RDO');
-insert into solution_citations
+insert into auteurs_citations
 values (18, 'RDO');
-insert into solution_citations
+insert into auteurs_citations
 values (19, 'BEJ');
-insert into solution_citations
+insert into auteurs_citations
 values (20, 'BEJ');
-insert into solution_citations
+insert into auteurs_citations
 values (20, 'BRM');
-insert into solution_citations
+insert into auteurs_citations
 values (21, 'BEJ');
-insert into solution_citations
+insert into auteurs_citations
 values (22, 'BEJ');
-insert into solution_citations
+insert into auteurs_citations
 values (23, 'BEJ');
-insert into solution_citations
+insert into auteurs_citations
 values (24, 'BEJ');
-insert into solution_citations
+insert into auteurs_citations
 values (25, 'BEJ');
-insert into solution_citations
+insert into auteurs_citations
 values (26, 'BEJ');
-insert into solution_citations
+insert into auteurs_citations
 values (26, 'CYG');
-insert into solution_citations
+insert into auteurs_citations
 values (27, 'BEJ');
-insert into solution_citations
+insert into auteurs_citations
 values (28, 'BEJ');
-insert into solution_citations
+insert into auteurs_citations
 values (29, 'BEJ');
-insert into solution_citations
+insert into auteurs_citations
 values (30, 'BEJ');
-insert into solution_citations
+insert into auteurs_citations
 values (30, 'BME');
-insert into solution_citations
+insert into auteurs_citations
 values (31, 'BRM');
-insert into solution_citations
+insert into auteurs_citations
 values (32, 'BRM');
-insert into solution_citations
+insert into auteurs_citations
 values (33, 'BRM');
-insert into solution_citations
+insert into auteurs_citations
 values (34, 'BRM');
-insert into solution_citations
+insert into auteurs_citations
 values (35, 'BRM');
-insert into solution_citations
+insert into auteurs_citations
 values (36, 'BRM');
-insert into solution_citations
+insert into auteurs_citations
 values (37, 'BRM');
-insert into solution_citations
+insert into auteurs_citations
 values (38, 'BRM');
-insert into solution_citations
+insert into auteurs_citations
 values (38, 'CYG');
-insert into solution_citations
+insert into auteurs_citations
 values (39, 'BRM');
-insert into solution_citations
+insert into auteurs_citations
 values (39, 'CYG');
-insert into solution_citations
+insert into auteurs_citations
 values (40, 'BRM');
-insert into solution_citations
+insert into auteurs_citations
 values (40, 'BEJ');
-insert into solution_citations
+insert into auteurs_citations
 values (41, 'DAS');
-insert into solution_citations
+insert into auteurs_citations
 values (42, 'DAS');
-insert into solution_citations
+insert into auteurs_citations
 values (43, 'DAS');
-insert into solution_citations
+insert into auteurs_citations
 values (44, 'DAS');
-insert into solution_citations
+insert into auteurs_citations
 values (45, 'LAAL');
-insert into solution_citations
+insert into auteurs_citations
 values (46, 'LAAL');
-insert into solution_citations
+insert into auteurs_citations
 values (46, 'CYG');
-insert into solution_citations
+insert into auteurs_citations
 values (47, 'LAAL');
-insert into solution_citations
+insert into auteurs_citations
 values (48, 'LAAL');
-insert into solution_citations
+insert into auteurs_citations
 values (49, 'LAAL');
-insert into solution_citations
+insert into auteurs_citations
 values (50, 'LAAL');
-insert into solution_citations
+insert into auteurs_citations
 values (51, 'LAAL');
-insert into solution_citations
+insert into auteurs_citations
 values (52, 'LAAL');
-insert into solution_citations
+insert into auteurs_citations
 values (53, 'BME');
-insert into solution_citations
+insert into auteurs_citations
 values (53, 'RDO');
-insert into solution_citations
+insert into auteurs_citations
 values (54, 'BME');
-insert into solution_citations
+insert into auteurs_citations
 values (55, 'BME');
-insert into solution_citations
+insert into auteurs_citations
 values (56, 'BME');
-insert into solution_citations
+insert into auteurs_citations
 values (57, 'BME');
-insert into solution_citations
+insert into auteurs_citations
 values (58, 'BME');
-insert into solution_citations
+insert into auteurs_citations
 values (59, 'RBO');
-insert into solution_citations
+insert into auteurs_citations
 values (60, 'RBO');
-insert into solution_citations
+insert into auteurs_citations
 values (61, 'RBO');
-insert into solution_citations
+insert into auteurs_citations
 values (62, 'RBO');
-insert into solution_citations
+insert into auteurs_citations
 values (63, 'MBI');
-insert into solution_citations
+insert into auteurs_citations
 values (64, 'MBI');
-insert into solution_citations
+insert into auteurs_citations
 values (65, 'MBI');
-insert into solution_citations
+insert into auteurs_citations
 values (66, 'MBI');
-insert into solution_citations
+insert into auteurs_citations
 values (67, 'MBI');
-insert into solution_citations
+insert into auteurs_citations
 values (67, 'RDO');
-insert into solution_citations
+insert into auteurs_citations
 values (68, 'MBI');
-insert into solution_citations
+insert into auteurs_citations
 values (69, 'JDO');
-insert into solution_citations
+insert into auteurs_citations
 values (70, 'JDO');
-insert into solution_citations
+insert into auteurs_citations
 values (71, 'JDO');
-insert into solution_citations
+insert into auteurs_citations
 values (72, 'JDO');
-insert into solution_citations
+insert into auteurs_citations
 values (73, 'FAM');
-insert into solution_citations
+insert into auteurs_citations
 values (74, 'FAM');
-insert into solution_citations
+insert into auteurs_citations
 values (75, 'MEG');
-insert into solution_citations
+insert into auteurs_citations
 values (76, 'MEG');
-insert into solution_citations
+insert into auteurs_citations
 values (77, 'CEM');
-insert into solution_citations
+insert into auteurs_citations
 values (78, 'CEM');
-insert into solution_citations
+insert into auteurs_citations
 values (79, 'CEM');
-insert into solution_citations
+insert into auteurs_citations
 values (80, 'CEM');
-insert into solution_citations
+insert into auteurs_citations
 values (81, 'SLU');
-insert into solution_citations
+insert into auteurs_citations
 values (82, 'SLU');
-insert into solution_citations
+insert into auteurs_citations
 values (83, 'LJA');
-insert into solution_citations
+insert into auteurs_citations
 values (84, 'LJA');
-insert into solution_citations
+insert into auteurs_citations
 values (85, 'LJA');
-insert into solution_citations
+insert into auteurs_citations
 values (86, 'CLI');
-insert into solution_citations
+insert into auteurs_citations
 values (87, 'MID');
-insert into solution_citations
+insert into auteurs_citations
 values (88, 'MID');
-insert into solution_citations
+insert into auteurs_citations
 values (89, 'MID');

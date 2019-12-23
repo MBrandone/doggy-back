@@ -17,14 +17,14 @@ create table doggies(
     email varchar(255)
 );
 
-create table defis(
+create table citations(
     id INTEGER PRIMARY KEY UNIQUE ,
-    citation varchar(500)
+    texte varchar(500)
 );
 
-create table solution_citations(
-    idDefis INTEGER,
+create table auteurs_citations(
+    id_citation INTEGER,
     trigramme varchar(255),
-    FOREIGN KEY (idDefis) REFERENCES defis(id),
+    FOREIGN KEY (id_citation) REFERENCES citations(id),
     FOREIGN KEY (trigramme) REFERENCES doggies(trigramme)
 );
