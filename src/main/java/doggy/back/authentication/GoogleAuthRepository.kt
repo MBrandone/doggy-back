@@ -2,6 +2,7 @@ package doggy.back.authentication
 
 import com.google.api.client.auth.openidconnect.IdToken
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier
+import doggy.back.rest.authentication.PasAuthentifieException
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component

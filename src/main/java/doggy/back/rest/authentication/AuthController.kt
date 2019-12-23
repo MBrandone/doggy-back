@@ -1,6 +1,6 @@
 package doggy.back.rest.authentication
 
-import doggy.back.infra.authentication.GoogleRepository
+import doggy.back.authentication.GoogleAuthRepository
 import io.swagger.annotations.Api
 import io.swagger.annotations.ApiOperation
 import io.swagger.annotations.ApiParam

@@ -1,7 +1,7 @@
 package doggy.back.rest.authentication
 
+import doggy.back.authentication.GoogleAuthRepository
 import doggy.back.domain.doggy.DoggyPersistance
-import doggy.back.infra.authentication.GoogleRepository
 import org.springframework.stereotype.Component
 import org.springframework.web.servlet.HandlerInterceptor
 import javax.servlet.http.HttpServletRequest
