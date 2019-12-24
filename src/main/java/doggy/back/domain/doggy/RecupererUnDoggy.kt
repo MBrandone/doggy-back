@@ -8,7 +8,6 @@ class RecupererUnDoggy(
     private var doggyPersistance: DoggyPersistance
 ) {
     fun execute(trigramme: String): Doggy {
-        val oDoggy = doggyPersistance.recupererUnDoggy(trigramme)
-        return oDoggy.orElseThrow { DoggyNotFoundException(trigramme) }
+        return doggyPersistance.recupererUnDoggy(trigramme) ?: throw DoggyNotFoundException(trigramme)
     }
 }

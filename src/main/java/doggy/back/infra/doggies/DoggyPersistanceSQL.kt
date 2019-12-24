@@ -2,8 +2,8 @@ package doggy.back.infra.doggies
 
 import doggy.back.domain.doggy.Doggy
 import doggy.back.domain.doggy.DoggyPersistance
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
-import java.util.*
 import kotlin.streams.toList
 
 @Component
@@ -22,7 +22,7 @@ class DoggyPersistanceSQL(
             .limit(nbDoggies).toList().toMutableList()
     }
 
-    override fun recupererUnDoggy(trigramme: String): Optional<Doggy> {
-        return doggyRepository.findById(trigramme).map { doggyMapper.toDoggy(it) }
+    override fun recupererUnDoggy(trigramme: String): Doggy? {
+        return doggyRepository.findByIdOrNull(trigramme)?.let { doggyMapper.toDoggy(it) }
     }
 }

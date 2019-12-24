@@ -1,13 +1,13 @@
 package doggy.back.domain.partie
 
-import doggy.back.rest.quizz.PartieStatut
+import doggy.back.domain.partie.PartieStatut.EN_COURS
 import java.util.*
 
 data class Partie(
     val id: String,
     val joueur: String,
     val score: Int,
-    val statut: String
+    val statut: PartieStatut
 ) {
     companion object {
         fun init(joueur: String): Partie {
@@ -15,7 +15,7 @@ data class Partie(
                 UUID.randomUUID().toString(),
                 joueur,
                 0,
-                PartieStatut.EN_COURS.toString()
+                EN_COURS
             )
         }
     }

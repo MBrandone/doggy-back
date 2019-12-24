@@ -2,6 +2,7 @@ package doggy.back.infra.defi
 
 import doggy.back.domain.citation.Citation
 import doggy.back.domain.citation.CitationPersistance
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
 
 @Component
@@ -17,4 +18,7 @@ class CitationPersistanceSQL(
         return citationMapper.toCitation(citationDatabases.get(0))
     }
 
+    override fun recupererCitation(idCitation: Int): Citation? {
+        return citationRepository.findByIdOrNull(idCitation)?.let { citationMapper.toCitation(it) }
+    }
 }

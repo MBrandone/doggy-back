@@ -27,16 +27,9 @@ class PartieController(
     fun repondreAuDefi(
         @PathVariable("idPartie") idPartie: String,
         @RequestBody reponse: Reponse
-    ): Correction {
+    ): Boolean {
         return corrigerReponse.execute(idPartie, reponse)
     }
-
-
-    data class Correction(
-        val idCitation: Int,
-        val estCorrecte: Boolean
-    )
-
 
     data class Reponse(
         val idCitation: Int,
@@ -66,9 +59,4 @@ class PartieController(
                 .body("Tema wesh, le défi avec l'id ${e.id}, il existe pas !")
         }
     }
-}
-
-enum class PartieStatut {
-    EN_COURS,
-    FINIE
 }

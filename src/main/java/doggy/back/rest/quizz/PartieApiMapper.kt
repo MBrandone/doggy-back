@@ -10,6 +10,6 @@ class PartieApiMapper {
             partie.id,
             partie.joueur,
             partie.score,
-            partie.statut
+            partie.statut.toString()
         )
 }
