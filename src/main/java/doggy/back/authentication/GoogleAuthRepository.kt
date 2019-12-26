@@ -15,7 +15,6 @@ class GoogleAuthRepository (
     private val LOGGER: Logger = LoggerFactory.getLogger(GoogleAuthRepository::class.java)
 
     fun getMail(idToken: String): String {
-
         try {
             val verify = verifier.verify(idToken)
             if (verify != null) {
