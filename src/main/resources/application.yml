@@ -1,7 +1,6 @@
 spring:
   datasource:
     url: "jdbc:postgresql://localhost/doggy"
-    #url: "jdbc:postgresql://db/doggy"
     username: "doggy"
     password: "skool"
     driverClassName: org.postgresql.Driver
@@ -27,3 +26,9 @@ springfox:
     swagger:
       v2:
         path: /docs/api-docs.json
+
+ping:
+  #doggyFrontHost: "https://doggy-skool-app.herokuapp.com"
+  doggyFrontHost: "http://localhost:3001"
+  #doggyBackHost: "https://doggy-back.herokuapp.com"
+  doggyBackHost: "http://localhost:8080"
