@@ -1,5 +1,7 @@
-package doggy.back.notifications
+package doggy.back.infra.authentication
 
+import doggy.back.domain.notifications.NotificationToken
+import doggy.back.domain.notifications.NotifyUsersRepository
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
@@ -29,10 +31,15 @@ class NotifyUsersRepositoryImpl(
         val reponse = restTemplate.exchange(
             "https://fcm.googleapis.com/fcm/send",
             HttpMethod.POST,
-            HttpEntity<Any>(RequestBody(
-                RequestNotification(title, content),
-                token.token
-            ), headers),
+            HttpEntity<Any>(
+                RequestBody(
+                    RequestNotification(
+                        title,
+                        content
+                    ),
+                    token.token
+                ), headers
+            ),
             String::class.java
         )
         logger.info("le body c'est : ${reponse.body}")

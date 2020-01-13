@@ -1,4 +1,4 @@
-package doggy.back.notifications
+package doggy.back.domain.notifications
 
 interface NotifyUsersRepository {
 

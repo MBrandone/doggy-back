@@ -1,9 +1,9 @@
-package doggy.back.notifications
+package doggy.back.domain.notifications
 
 import org.springframework.stereotype.Component
 
 @Component
-class NotifyUsersUseCase(
+class NotifierUsers(
     private val notificationTokensRepository: NotificationTokensRepository,
     private val notifyUsersRepository: NotifyUsersRepository
 ) {
