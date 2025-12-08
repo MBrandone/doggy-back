@@ -9,12 +9,18 @@ import org.springframework.stereotype.Component
 @Component
 class CorrigerReponse(
     private val partiePersistance: PartiePersistance,
-    private val citationPersistance: CitationPersistance
+    private val citationPersistance: CitationPersistance,
+    private val calculateurScore: CalculateurScore
 ) {
-    fun execute(idPartie: String, reponse: PartieController.Reponse): Boolean {
+    fun execute(idPartie: String, reponse: PartieController.Reponse): ResultatReponse {
         val partie = partiePersistance.recupererPartie(idPartie) ?: throw PartieNonTrouveeException(idPartie)
         if (EN_COURS == partie.statut) {
-            return corriger(reponse)
+            val reponseCorrecte = corriger(reponse)
+            val tempsReponseMs = reponse.tempsReponse ?: 0L
+            val points = calculateurScore.calculerPoints(reponseCorrecte, tempsReponseMs)
+            val partieModifiee = partie.ajouterPoints(points)
+            partiePersistance.sauverPartie(partieModifiee)
+            return ResultatReponse(reponseCorrecte, points)
         } else {
             throw PartieTermineeException(idPartie)
         }
@@ -26,6 +32,11 @@ class CorrigerReponse(
             .auteurs.any { it.trigramme == reponse.texte }
     }
 }
+
+data class ResultatReponse(
+    val correct: Boolean,
+    val pointsGagnes: Int
+)
 
 class CitationNonTrouveException(val id: Int) : RuntimeException()
 class PartieTermineeException(val id: String) : RuntimeException()
