@@ -3,6 +3,7 @@ package doggy.back.rest.quizz
 import doggy.back.domain.citation.CitationNonTrouveException
 import doggy.back.domain.citation.CorrigerReponse
 import doggy.back.domain.citation.PartieTermineeException
+import doggy.back.domain.citation.ReponseResultat
 import doggy.back.domain.partie.CreerPartie
 import doggy.back.infra.parties.PartieNonTrouveeException
 import org.springframework.http.HttpStatus
@@ -27,13 +28,20 @@ class PartieController(
     fun repondreAuDefi(
         @PathVariable("idPartie") idPartie: String,
         @RequestBody reponse: Reponse
-    ): Boolean {
-        return corrigerReponse.execute(idPartie, reponse)
+    ): ReponseApi {
+        val resultat = corrigerReponse.execute(idPartie, reponse)
+        return ReponseApi(resultat.correct, resultat.pointsGagnes)
     }
 
     data class Reponse(
         val idCitation: Int,
-        val texte: String
+        val texte: String,
+        val tempsReponse: Long? = null
+    )
+
+    data class ReponseApi(
+        val correct: Boolean,
+        val pointsGagnes: Int
     )
 
     @ControllerAdvice(assignableTypes = [PartieController::class])

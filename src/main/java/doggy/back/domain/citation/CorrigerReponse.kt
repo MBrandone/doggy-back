@@ -1,5 +1,6 @@
 package doggy.back.domain.citation
 
+import doggy.back.domain.partie.CalculateurScore
 import doggy.back.domain.partie.PartiePersistance
 import doggy.back.domain.partie.PartieStatut.EN_COURS
 import doggy.back.infra.parties.PartieNonTrouveeException
@@ -9,12 +10,20 @@ import org.springframework.stereotype.Component
 @Component
 class CorrigerReponse(
     private val partiePersistance: PartiePersistance,
-    private val citationPersistance: CitationPersistance
+    private val citationPersistance: CitationPersistance,
+    private val calculateurScore: CalculateurScore
 ) {
-    fun execute(idPartie: String, reponse: PartieController.Reponse): Boolean {
+    fun execute(idPartie: String, reponse: PartieController.Reponse): ReponseResultat {
         val partie = partiePersistance.recupererPartie(idPartie) ?: throw PartieNonTrouveeException(idPartie)
         if (EN_COURS == partie.statut) {
-            return corriger(reponse)
+            val reponseCorrecte = corriger(reponse)
+            val tempsReponse = reponse.tempsReponse ?: 0L
+            val pointsGagnes = calculateurScore.calculerPoints(reponseCorrecte, tempsReponse)
+
+            val partieModifiee = partie.ajouterPoints(pointsGagnes)
+            partiePersistance.sauvegarder(partieModifiee)
+
+            return ReponseResultat(reponseCorrecte, pointsGagnes)
         } else {
             throw PartieTermineeException(idPartie)
         }
