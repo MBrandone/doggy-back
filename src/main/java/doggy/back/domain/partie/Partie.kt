@@ -19,4 +19,8 @@ data class Partie(
             )
         }
     }
+
+    fun ajouterPoints(points: Int): Partie {
+        return this.copy(score = score + points)
+    }
 }
